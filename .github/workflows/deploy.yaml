@@ -6,9 +6,9 @@ on:
     branches: [ master ]
 
 env:
-  ECR_REPOSITORY: flask-app
-  EKS_CLUSTER_NAME: Kubernetes-demo 
-  AWS_REGION: us-east-1
+  ECR_REPOSITORY: testdemo
+  EKS_CLUSTER_NAME: eks01-tpe-test-hishops
+  AWS_REGION: ap-east-2
 
 jobs:
   
@@ -56,3 +56,4 @@ jobs:
         sed -i.bak "s|DOCKER_IMAGE|$ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG|g" manifests/hello-app-deployment.yaml && \
         kubectl apply -f manifests/hello-app-deployment.yaml
         kubectl apply -f manifests/hello-app-service.yaml
+		
